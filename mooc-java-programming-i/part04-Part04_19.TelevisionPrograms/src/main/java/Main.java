@@ -8,6 +8,33 @@ public class Main {
 
         ArrayList<TelevisionProgram> programs = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
+        
+        while(true){
+            
+            System.out.print("Name:");
+            String name = scanner.nextLine();
+            
+            if (name.isEmpty()){
+                break;
+            }
+            
+            System.out.print("Duration");
+            int duration = Integer.valueOf(scanner.nextLine());
+            
+            TelevisionProgram newProgram = new TelevisionProgram(name, duration);
+            
+            programs.add(newProgram);
+            
+        }
+        
+        System.out.print("Program's maximum duration?");
+        int maxDuration = Integer.valueOf(scanner.nextLine());
+        
+        for (TelevisionProgram tP : programs){
+            if(tP.getDuration() <= maxDuration){
+                System.out.println(tP.getName() + ", " + tP.getDuration() + " minutes");
+            }
+        }
 
     }
 }
